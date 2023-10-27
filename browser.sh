@@ -20,6 +20,7 @@ install_chromium() {
     else
         read -p "Enter username for Chromium : " USERNAME
         read -sp "Enter password for Chromium : " PASSWORD
+        read -p "Enter Title: " TITLE
         echo
         echo "Installing Chromium..."
         docker run -d \
@@ -28,6 +29,7 @@ install_chromium() {
             -e PUID=1000 \
             -e PGID=1000 \
             -e TZ=Etc/UTC \
+            -e TITLE=$TITLE \
             -e CUSTOM_USER=$USERNAME \
             -e PASSWORD=$PASSWORD \
             -e CHROME_CLI=https://www.youtube.com/@IR_TECH/ `#optional` \
